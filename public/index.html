@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Chat Room</title>
+    <style>
+        #messages {
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+        <!-- <script>
+            document.getElementById('status').textContent = 'hello';
+        </script> -->
+
+
+    <div id="mario-chat">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 col-sm-12">
+                    <h1 class="text-center">
+                        <marquee>
+                            Chat Room
+                        </marquee>
+                    </h1>
+
+                    <div id="chat">
+                        <input type="text" id="username" class="form-control" placeholder="Your name...">
+                        <br>
+                        <br>
+                        <div class="card">
+                            <div id="messages" class="card-block" style="overflow:auto;">
+                            </div>
+                        </div>
+                        <br>
+                        <table border="0" width="100%" cellspacing="10">
+                            <tr>
+                                <td><input type="text" id="sentmessages" class="form-control" placeholder="Message..."
+                                        rows="1"></input></td>
+                                <td><button id="sent" class="btn btn-DodgerBlue" align="right">Sent</button></td>
+                                <td><br></td>
+                            <tr>
+                        </table>
+                        <br>
+                        <div id="status"></div> 
+                        <button id="clear" class="btn btn-danger">Clear</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="chat.js"></script>
+</body>
+
+</html>
