@@ -16,16 +16,11 @@ mongo.connect('mongodb://127.0.0.1/mongochat', { useNewUrlParser: true }, functi
     if (err) {
         throw err;
     }
-
+    console.log('MongoDB connected...');
 
     io.on('connection', function (socket) {
         let myDB = db.db('mongochat');
         let chat = myDB.collection('chats');
-        console.log('MongoDB connected...', socket.id);
-        // Create function to send status
-        sendStatus = function (s) {
-            socket.emit('status', s);
-        }
 
         // Get chats from mongo collection
         chat.find().limit(100).sort({ _id: 1 }).toArray(function (err, res) {
@@ -35,7 +30,10 @@ mongo.connect('mongodb://127.0.0.1/mongochat', { useNewUrlParser: true }, functi
             // Emit the messages
             socket.emit('output', res);
         });
-
+        // Create function to send status
+        sendStatus = function (s) {
+            socket.emit('status', s);
+        }
         // Handle input events
         socket.on('input', function (data) {
             let name = data.name;
